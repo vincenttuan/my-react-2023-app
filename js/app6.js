@@ -23,3 +23,8 @@ var arr3 = [...arr1, ...arr2]; // 合併 arr1 和 arr2
 console.log(arr3); // [ 1, 2, 3, 4, 5, 6 ]
 
 // 物件展開運算符
+var user1 = {username: 'John', age: 18};
+var user2 = {username: 'Mary', score: 95};
+var user3 = {...user1, ...user2}; // 合併 user1 和 user2
+// 因為 user1 和 user2 都有 username，所以 user2 的 username 會覆蓋 user1 的 username
+console.log(user3); // { username: 'Mary', age: 18, score: 95 }
