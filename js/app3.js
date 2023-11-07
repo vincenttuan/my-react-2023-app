@@ -8,6 +8,7 @@ console.log(message1); // 你好，我是小明，今年18歲。
 
 const message2 = '你好，我是${username}，今年${age}歲。'; // 單引號（'）
 console.log(message2); // 你好，我是${username}，今年${age}歲。資料不會被解析
+console.log('你好，我是' + username + '，今年' + age + '歲。') // 使用 + 號
 
 // 反引號（`）支援換行
 const message3 = `你好，
