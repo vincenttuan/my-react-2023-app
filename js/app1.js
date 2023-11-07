@@ -15,3 +15,24 @@ console.log(b); // 20
 const c = 30;
 //const c = 'Thirty'; // 不可以重複宣告
 console.log(c); // 30
+
+// var 與 let 在 function 內的差別
+function varTest() {
+    var x = 1;
+    if(true) {
+        var x = 2; // 與 21 行的 x 是同一個變數
+        console.log(x); // 2
+    }
+    console.log(x); // 2
+}
+varTest();
+
+function letTest() {
+    let x = 1;
+    if(true) {
+        let x = 2; // 與 21 行的 x 不是同一個變數, 因為 x 是區域變數
+        console.log(x); // 2
+    }
+    console.log(x); // 1
+}
+letTest();
