@@ -21,3 +21,14 @@ console.log(square(3)); // 9
 // 如果沒有參數
 var sayHello = () => 'Hello';
 console.log(sayHello()); // Hello
+
+// 箭頭函數的 this 是定義時所在的對象，而不是使用時所在的對象
+var obj = {
+    id: 6,
+    counter: function() {
+        setTimeout(() => {
+            console.log(this.id);
+        }, 1000);
+    }
+}
+obj.counter(); // 6
