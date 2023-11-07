@@ -22,6 +22,18 @@ console.log(square(3)); // 9
 var sayHello = () => 'Hello';
 console.log(sayHello()); // Hello
 
+// ES5
+var obj = {
+    id: 5,
+    counter: function() {
+        setTimeout(function() {
+            console.log(this.id);
+        }.bind(this), 1000);
+    }
+}
+obj.counter(); // 5
+
+// ES6
 // 箭頭函數的 this 是定義時所在的對象，而不是使用時所在的對象
 var obj = {
     id: 6,
