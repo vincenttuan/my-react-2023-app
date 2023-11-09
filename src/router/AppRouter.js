@@ -1,11 +1,7 @@
 // npm install react-router-dom
 // 會被安裝到 node_modules 資料夾中
-
 import { Routes, Route }  from "react-router-dom";
-
-function Home() {
-    return <h2>Home Page</h2>
-}
+import Home from "./Home";
 
 function About() {
     return <h2>About Page</h2>
