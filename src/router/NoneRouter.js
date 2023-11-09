@@ -39,9 +39,9 @@ function NoneRouter() {
     <div style={{ display: 'flex' }}>
       <div style={{ borderRight: '1px solid', padding: '1rem' }}>
         <ul>
-          <li onClick={() => setRoute('home')}>Home</li>
-          <li onClick={() => setRoute('profile')}>Profile</li>
-          <li onClick={() => setRoute('settings')}>Settings</li>
+          <li style={{cursor: 'pointer'}} onClick={() => setRoute('home')}>Home</li>
+          <li style={{cursor: 'pointer'}} onClick={() => setRoute('profile')}>Profile</li>
+          <li style={{cursor: 'pointer'}} onClick={() => setRoute('settings')}>Settings</li>
         </ul>
       </div>
       <main style={{ flex: 1, padding: '1rem' }}>

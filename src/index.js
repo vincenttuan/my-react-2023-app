@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 // Router
 import AppRouter from './router/AppRouter';
 import NavRouter from './router/NavRouter';
+import NoneRouter from './router/NoneRouter';
 import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -28,10 +29,20 @@ root.render(
   </React.StrictMode>
 );
 */
+/*
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <NavRouter />
+    </BrowserRouter>
+  </React.StrictMode>
+);
+*/
+
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <NoneRouter />
     </BrowserRouter>
   </React.StrictMode>
 );
