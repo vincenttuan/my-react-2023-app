@@ -9,7 +9,7 @@
 */
 // 宣告購物清單上的項目與價格
 const items = ['bread', 'milk', 'butter']
-const price = {breab: 2, milk: 1.5, butter: 3}
+const price = {bread: 2, milk: 1.5, butter: 3}
 
 // 定義一個可以計算總金額的函數
 const calcTotal = (prices, ...items) => {
@@ -33,4 +33,19 @@ const fetchPrices = async () => {
 const getItemPrice = (prices, item) => prices?.[item] ?? '無此價格';
 
 // 主程式：
+// 非同步環境：(async () => {...})();
+(async () => {
+    const prices = await fetchPrices(); // 取得所有商品的價格
+    console.log(prices)
 
+    let shoppingList = []; // 空的購物清單
+    addToShoppingList(shoppingList, 'bread', 3); // 買 3 個麵包加入到購物清單中
+    console.log('bread: $' + getItemPrice(prices, 'bread'))
+    addToShoppingList(shoppingList, 'milk', 2); // 買 2 個牛奶加入到購物清單中
+    console.log('milk: $' + getItemPrice(prices, 'milk'))
+    console.log(shoppingList);
+
+    const total = calcTotal(prices, ...shoppingList); // 計算總金額
+    printReceipt(total); // 列印總金額
+
+})()
