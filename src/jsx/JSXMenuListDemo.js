@@ -34,6 +34,12 @@ function JSXMenuListDemo() {
                     <div key={item.id}>{item.name}</div>
                 ))
             } />
+            <p />
+            {
+                menuItems.map(item => (
+                    <CustomComponent key={item.id} render={() => <div>{item.name}</div>} />
+                ))
+            }
         </>
     );
 }
