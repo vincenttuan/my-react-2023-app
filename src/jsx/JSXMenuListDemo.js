@@ -25,6 +25,13 @@ function JSXMenuListDemo() {
         { id: 12, name: '炒蛋'}  
     ];
 
+    // 用戶數據
+    const users = [
+        {id: 1, username: 'Alice', age:30},
+        {id: 2, username: 'Bob', age:24},
+        {id: 3, username: 'Coco', age:28},
+    ];
+
     return (
         <>
             <h2>Menu List</h2>
@@ -40,6 +47,14 @@ function JSXMenuListDemo() {
                     <CustomComponent key={item.id} render={() => <div>{item.name}</div>} />
                 ))
             }
+            <h2>User List</h2>
+            <CustomComponent render={() => 
+                users.map(user => (
+                    <div key={user.is}>
+                        <strong>{user.username}</strong> - 年齡: {user.age}
+                    </div>
+                ))
+            } />
         </>
     );
 }
