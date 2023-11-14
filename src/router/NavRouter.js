@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import JSXShoppingDemo from '../jsx/JSXShoppingDemo'
 import JSXFinanceDemo from '../jsx/JSXFinanceDemo'
 import PersonalExpenseTracker from '../jsx/PersonalExpenseTracker'
+import JSXMenuListDemo from "../jsx/JSXMenuListDemo";
 function Home() {
     return <h2>Home Page</h2>
 }
@@ -31,6 +32,7 @@ function NavRouter() {
                     <li><Link to="/JSXShoppingDemo">JSX Shopping Demo</Link></li>
                     <li><Link to="/JSXFinanceDemo">JSX Finance Demo</Link></li>
                     <li><Link to="/PersonalExpenseTracker">Personal Expense Tracker</Link></li>
+                    <li><Link to="/JSXMenuListDemo">JSX MenuList Demo</Link></li>
                 </ol>
             </nav>
             {/* 右邊內容 */}
@@ -43,6 +45,7 @@ function NavRouter() {
                     <Route path="/JSXShoppingDemo" element={<JSXShoppingDemo />} />
                     <Route path="/JSXFinanceDemo" element={<JSXFinanceDemo />} />
                     <Route path="/PersonalExpenseTracker" element={<PersonalExpenseTracker />} />
+                    <Route path="/JSXMenuListDemo" element={<JSXMenuListDemo />} />
                 </Routes>
             </main>
         </div>
