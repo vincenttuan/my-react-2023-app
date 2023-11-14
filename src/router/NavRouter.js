@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-
+import JSXShoppingDemo from '../jsx/JSXShoppingDemo'
 function Home() {
     return <h2>Home Page</h2>
 }
@@ -23,6 +23,10 @@ function NavRouter() {
                     <li><Link to="/profile">Profile</Link></li>
                     <li><Link to="/settings">Settings</Link></li>
                 </ul>
+                <ol>
+                    JSX
+                    <li><Link to="/JSXShoppingDemo">JSX Shopping Demo</Link></li>
+                </ol>
             </nav>
             {/* 右邊內容 */}
             <main style={{flex: 1, padding: '1rem'}}>
@@ -30,6 +34,8 @@ function NavRouter() {
                     <Route path="/" element={<Home />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/settings" element={<Settings />} />
+                    {/* JSX */}
+                    <Route path="/JSXShoppingDemo" element={<JSXShoppingDemo />} />
                 </Routes>
             </main>
         </div>
