@@ -31,6 +31,22 @@ function JSXShoppingDemo() {
             </tr>
         )
     );
+
+    return (
+        <div>
+            <h2>{title}</h2>
+            預算: ${budget}<p />
+            總花費: ${totalCost}<p />
+            <table>
+                <thead>
+                    <tr><th>id</th><th>項目</th><th>價格</th></tr>
+                </thead>
+                <tbody>
+                    {tableRows}
+                </tbody>
+            </table>
+        </div>
+    );
 }
 
 export default JSXShoppingDemo;
