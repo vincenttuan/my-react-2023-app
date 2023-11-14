@@ -29,7 +29,7 @@ root.render(
   </React.StrictMode>
 );
 */
-/*
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -37,8 +37,8 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
-*/
 
+/*
 root.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -46,7 +46,7 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
+*/
 const sendToServer = prefEntity => {
   fetch('http://localhost:8080/React-backend/pref', {
     method: 'POST',
