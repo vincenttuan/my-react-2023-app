@@ -28,13 +28,16 @@ function PersonalExpenseTracker() {
 
     // 定義帳戶餘額
     const accountBalance = 8000;
+
     // 定義交易記錄數據
-    
     const transactions = [
         {id: 1, type: '食品', amount: 120, isCompleted: true},
         {id: 2, type: '交通', amount: 50, isCompleted: true},
         {id: 3, type: '娛樂', amount: 200, isCompleted: false},
     ];
+
+    // 計算交易總金額
+    const totalAmount = transactions.reduce((total, tx) => total + tx.amount, 0);
 
     // 使用 map 來創建表格紀錄列
     const transactionsRows = transactions.map(
@@ -42,7 +45,7 @@ function PersonalExpenseTracker() {
             <tr key={tx.id} style={{color: tx.isCompleted ? 'black' : 'red'}}>
                 <td>{tx.id}</td>
                 <td>{tx.type}</td>
-                <td>{tx.amount}</td>
+                <td>${tx.amount}</td>
                 <td>{tx.isCompleted ? '是' : '否'}</td>
             </tr>
         )
@@ -64,6 +67,16 @@ function PersonalExpenseTracker() {
                 <tbody>
                     {transactionsRows}
                 </tbody>
+                <tr>
+                    <td colSpan="4"><hr /></td>
+                </tr>
+                <tfoot>
+                    <tr>
+                        <td colSpan="2">總計</td>
+                        <td>${totalAmount}</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     )
