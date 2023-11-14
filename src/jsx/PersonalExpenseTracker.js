@@ -39,6 +39,13 @@ function PersonalExpenseTracker() {
     // 計算交易總金額
     const totalAmount = transactions.reduce((total, tx) => total + tx.amount, 0);
 
+    // 格式化數字
+    const formatNumber = (number) => {
+        //return new Intl.NumberFormat('it-IT', {style: 'currency', currency: 'EUR'}).format(number);
+        //return new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(number);
+        return new Intl.NumberFormat('zh-TW', {style: 'currency', currency: 'TWD'}).format(number);
+    };
+
     // 使用 map 來創建表格紀錄列
     const transactionsRows = transactions.map(
         tx => (
@@ -54,7 +61,7 @@ function PersonalExpenseTracker() {
     return (
         <div>
             <h2>{username} 的交易紀錄</h2>
-            帳戶餘額: ${accountBalance} <p />
+            帳戶餘額: {formatNumber(accountBalance)} <p />
             <table>
                 <thead>
                     <tr>
