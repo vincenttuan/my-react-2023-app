@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+// JSX
 import JSXShoppingDemo from '../jsx/JSXShoppingDemo'
+import JSXFinanceDemo from '../jsx/JSXFinanceDemo'
 function Home() {
     return <h2>Home Page</h2>
 }
@@ -26,6 +28,7 @@ function NavRouter() {
                 <ol>
                     JSX
                     <li><Link to="/JSXShoppingDemo">JSX Shopping Demo</Link></li>
+                    <li><Link to="/JSXFinanceDemo">JSX Finance Demo</Link></li>
                 </ol>
             </nav>
             {/* 右邊內容 */}
@@ -36,6 +39,7 @@ function NavRouter() {
                     <Route path="/settings" element={<Settings />} />
                     {/* JSX */}
                     <Route path="/JSXShoppingDemo" element={<JSXShoppingDemo />} />
+                    <Route path="/JSXFinanceDemo" element={<JSXFinanceDemo />} />
                 </Routes>
             </main>
         </div>

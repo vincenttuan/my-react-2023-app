@@ -30,7 +30,7 @@ function JSXFinanceDemo() {
                 <td>{tx.id}</td>
                 <td>{tx.type}</td>
                 <td>{tx.amount}</td>
-                <td>{tx.isCompleted}</td>
+                <td>{tx.isCompleted ? '是' : '否'}</td>
             </tr>
         )
     );
