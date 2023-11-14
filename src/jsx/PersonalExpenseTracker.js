@@ -20,3 +20,53 @@
  * 交易記錄的表格。
 
  */
+import React from 'react'
+
+function PersonalExpenseTracker() {
+    // 定義用戶名稱
+    const username = 'Chris';
+
+    // 定義帳戶餘額
+    const accountBalance = 8000;
+    // 定義交易記錄數據
+    
+    const transactions = [
+        {id: 1, type: '食品', amount: 120, isCompleted: true},
+        {id: 2, type: '交通', amount: 50, isCompleted: true},
+        {id: 3, type: '娛樂', amount: 200, isCompleted: false},
+    ];
+
+    // 使用 map 來創建表格紀錄列
+    const transactionsRows = transactions.map(
+        tx => (
+            <tr key={tx.id} style={{color: tx.isCompleted ? 'black' : 'red'}}>
+                <td>{tx.id}</td>
+                <td>{tx.type}</td>
+                <td>{tx.amount}</td>
+                <td>{tx.isCompleted ? '是' : '否'}</td>
+            </tr>
+        )
+    );
+
+    return (
+        <div>
+            <h2>{username} 的交易紀錄</h2>
+            帳戶餘額: ${accountBalance} <p />
+            <table>
+                <thead>
+                    <tr>
+                        <th>交易序號</th>
+                        <th>交易類型</th>
+                        <th>交易金額</th>
+                        <th>交易完成</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {transactionsRows}
+                </tbody>
+            </table>
+        </div>
+    )
+}
+
+export default PersonalExpenseTracker;
