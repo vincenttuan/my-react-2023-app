@@ -1,4 +1,22 @@
 import React from "react";
+
+function SpicyIcon({level}) { // 客製化元件(CustomComponent)
+    // 根據 level 來生成辣椒圖標的數量
+    // Emoji 鍵盤或表情符號面板
+    // 在 Windows上，您可以使用Win + .或Win + ;快捷鍵。
+    // 在 macOS上，使用Ctrl + Cmd + Space快捷鍵。
+    return <>{'🌶'.repeat(level)}</>
+    //return <>{'\u{1F336}'.repeat(level)}</>
+}
+
+function MenuItem({item}) { // 客製化元件(CustomComponent)
+    return (
+        <div key={item.id}>
+            {item.name} {item.spicy > 0 && <SpicyIcon level={item.spicy} />}
+        </div>
+    );
+}
+
 function JSXMenuListSpicyDemo() {
     // 這是我們菜單的數據，每個項目有一個id和一個名稱
     const menuItems = [
@@ -17,7 +35,15 @@ function JSXMenuListSpicyDemo() {
     ];
     return (
         <>
-            
+            <h2>菜單列表</h2>
+            {
+                // 使用 MenuItem 自訂組件的好處
+                // 1. 可以將菜單項目的渲染邏輯封裝起來
+                // 2. 讓程式碼更簡潔
+                menuItems.map(item => (
+                   <MenuItem key={item.id} item={item} /> 
+                ))
+            }
         </>
     );
 }
