@@ -8,6 +8,8 @@ import JSXMenuListDemo from "../jsx/JSXMenuListDemo";
 import JSXMenuListSpicyDemo from "../jsx/JSXMenuListSpicyDemo";
 import JSXDangerousDemo from "../jsx/JSXDangerousDemo";
 import JSXShoppingCartPropsDemo from "../jsx/JSXShoppingCartPropsDemo"
+// Component
+import FuncApp from "../component/FuncApp";
 
 function Home() {
     return <h2>Home Page</h2>
@@ -41,6 +43,10 @@ function NavRouter() {
                     <li><Link to="/JSXDangerousDemo">JSX Dangerous Demo</Link></li>
                     <li><Link to="/JSXShoppingCartPropsDemo">JSX Shopping Cart Props Demo</Link></li>
                 </ol>
+                <ol>
+                    Component
+                    <li><Link to="/FuncApp">FuncApp（函數元件）</Link></li>
+                </ol>
             </nav>
             {/* 右邊內容 */}
             <main style={{flex: 1, padding: '1rem'}}>
@@ -56,6 +62,9 @@ function NavRouter() {
                     <Route path="/JSXMenuListSpicyDemo" element={<JSXMenuListSpicyDemo />} />
                     <Route path="/JSXDangerousDemo" element={<JSXDangerousDemo />} />
                     <Route path="/JSXShoppingCartPropsDemo" element={<JSXShoppingCartPropsDemo />} />
+                    {/* Component */}
+                    <Route path="/FuncApp" element={<FuncApp />} />
+                    
                 </Routes>
             </main>
         </div>
