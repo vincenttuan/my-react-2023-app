@@ -32,3 +32,5 @@ function FormUI({symbol, amount, onSymbolChange, onAmountChange, onSubmit}) {
 
     );
 }
+
+export default FormUI;
