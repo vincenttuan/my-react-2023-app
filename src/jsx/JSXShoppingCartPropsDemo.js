@@ -1,8 +1,20 @@
 // 屬性展開：可以使用...運算符將一個對象的所有屬性作為props傳達給JSX元素。
 import React from "react";
 
-function Product() {
-
+function Product({title, price, ...props}) {
+    return (
+        <div>
+            <h2>{title}</h2>
+            <p>{price}</p>
+            {/* 展示 props 裡面的其他內容 */}
+            <div>
+                {
+                    Objects.key(props).map(key => 
+                        <p key={key}>{`${key}: ${props[key]}`}</p>)
+                }
+            </div>
+        </div>
+    );
 }
 
 function JSXShoppingCartPropsDemo() {
@@ -31,7 +43,11 @@ function JSXShoppingCartPropsDemo() {
     ];
     return (
         <div>
-
+            {
+                products.map(product => (
+                    <Product key={product.id} {...product} />
+                ))
+            }
         </div>
     );       
 }
