@@ -24,7 +24,7 @@ class Form2 extends React.Component {
     };
 
     render() {
-        const {formData} = this.formData;
+        const {formData} = this.state;
         return (
             <FormUI 
                 symbol = {formData.symbol}
