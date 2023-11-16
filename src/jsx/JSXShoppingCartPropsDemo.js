@@ -5,7 +5,8 @@ function Product({title, price, ...props}) {
     return (
         <div>
             <h2>{title}</h2>
-            <p>{price}</p>
+            <h3>{price}</h3>
+            <hr />
             {/* 展示 props 裡面的其他內容 */}
             <div>
                 {
