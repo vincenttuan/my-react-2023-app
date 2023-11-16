@@ -73,7 +73,7 @@ function HOCAssetInfo() {
         {id: 2, type: '等級', value: '10'},
     ];
 
-    retuen (
+    return (
         <>
             <EnhanceAssetComponent assets={userAssets} />
             <EnhanceInfoComponent infos={userInfos} />
