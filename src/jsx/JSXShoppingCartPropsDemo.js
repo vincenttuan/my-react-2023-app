@@ -9,7 +9,7 @@ function Product({title, price, ...props}) {
             {/* 展示 props 裡面的其他內容 */}
             <div>
                 {
-                    Objects.key(props).map(key => 
+                    Object.key(props).map(key => 
                         <p key={key}>{`${key}: ${props[key]}`}</p>)
                 }
             </div>
