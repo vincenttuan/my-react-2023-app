@@ -11,6 +11,7 @@ import JSXShoppingCartPropsDemo from "../jsx/JSXShoppingCartPropsDemo"
 // Component
 import FuncApp from "../component/FuncApp";
 import ClassApp from "../component/ClassApp";
+import HOCApp from "../component/HOCApp";
 
 function Home() {
     return <h2>Home Page</h2>
@@ -48,6 +49,7 @@ function NavRouter() {
                     Component
                     <li><Link to="/FuncApp">FuncApp（函數元件）</Link></li>
                     <li><Link to="/ClassApp">ClassApp（類別元件）</Link></li>
+                    <li><Link to="/HOCApp">HOCApp（高階元件）</Link></li>
                 </ol>
             </nav>
             {/* 右邊內容 */}
@@ -67,6 +69,7 @@ function NavRouter() {
                     {/* Component */}
                     <Route path="/FuncApp" element={<FuncApp />} />
                     <Route path="/ClassApp" element={<ClassApp />} />
+                    <Route path="/HOCApp" element={<HOCApp />} />
                     
                 </Routes>
             </main>
