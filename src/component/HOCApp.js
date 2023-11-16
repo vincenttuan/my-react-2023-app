@@ -8,10 +8,10 @@ function SecureComponent() {
 function withAdminPermission(WrappedComponent) {
     return function EnchanceSecureComponent({isAdmin, ...props}) {
         // 獲取今日日期
-        const today = new Date().toLocaleTimeString;
+        const today = new Date().toLocaleTimeString();
 
         // 渲染日期 + copyright
-        const renderDateAndCopyRight = <div>日期：{today} <p /> 版權所有 ...</div>
+        const renderDateAndCopyRight = () => <div>日期：{today} <p /> 版權所有 ...</div>
 
         // 條件渲染基於 isAdmin 屬性內容
         return (
@@ -24,9 +24,10 @@ function withAdminPermission(WrappedComponent) {
                         <div>這是一般大家可以看到的內容。</div>
                     )
                 }
-                
+
                 {/* 網頁中總是要出現的內容 */}
-                {renderDateAndCopyRight}
+                {renderDateAndCopyRight()}
+
             </>
         );
     }
