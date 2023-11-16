@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 // JSX
 import JSXShoppingDemo from '../jsx/JSXShoppingDemo'
 import JSXFinanceDemo from '../jsx/JSXFinanceDemo'
@@ -81,7 +81,7 @@ function NavRouter() {
                     <Route path="/HOCApp" element={<HOCApp />} />
                     <Route path="/HOCAssetInfo" element={<HOCAssetInfo />} />
                     {/* Form & List */}
-                    <Route path="/FunForm1cApp" element={<Form1 />} />
+                    <Route path="/Form1" element={<Form1 />} />
                 </Routes>
             </main>
         </div>
