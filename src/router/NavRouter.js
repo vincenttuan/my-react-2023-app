@@ -13,6 +13,8 @@ import FuncApp from "../component/FuncApp";
 import ClassApp from "../component/ClassApp";
 import HOCApp from "../component/HOCApp";
 import HOCAssetInfo from "../component/HOCAssetInfo";
+// Form & List
+import Form1 from "../form_list/form/Form1";
 
 function Home() {
     return <h2>Home Page</h2>
@@ -53,6 +55,11 @@ function NavRouter() {
                     <li><Link to="/HOCApp">HOCApp（高階元件）</Link></li>
                     <li><Link to="/HOCAssetInfo">HOCAssetInfo（高階元件）</Link></li>
                 </ol>
+                <ol>
+                    Form
+                    <li><Link to="/Form1">Form1</Link></li>
+                    
+                </ol>
             </nav>
             {/* 右邊內容 */}
             <main style={{flex: 1, padding: '1rem'}}>
@@ -73,7 +80,8 @@ function NavRouter() {
                     <Route path="/ClassApp" element={<ClassApp />} />
                     <Route path="/HOCApp" element={<HOCApp />} />
                     <Route path="/HOCAssetInfo" element={<HOCAssetInfo />} />
-                    
+                    {/* Form & List */}
+                    <Route path="/FunForm1cApp" element={<Form1 />} />
                 </Routes>
             </main>
         </div>
