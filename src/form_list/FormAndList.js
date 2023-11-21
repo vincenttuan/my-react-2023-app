@@ -25,7 +25,7 @@ class FormAndList extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const newProduct = {
-            id: this.state.products.length - 1,
+            id: this.state.products.length,
             symbol: this.state.form.symbol,
             amount: this.state.form.amount
         };
