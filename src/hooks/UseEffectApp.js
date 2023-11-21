@@ -18,12 +18,13 @@ function UseEffectApp() {
     useEffect(() => {
         console.log('effect ' + new Date().toLocaleDateString());
     });
+
     return (
         <div>
             <p>目前台積電最新報價 {price} 元</p>
-            <button onClick={() => setPrice(price + 1)}>點我看報價</button>
+            <button onClick={() => setPrice(500+Math.floor(Math.random()*100))}>點我看報價</button>
             <p>目前最新氣溫 {temp} 度</p>
-            <button onClick={() => setTemp(price + 1)}>點我看氣象</button>
+            <button onClick={() => setTemp(10+Math.floor(Math.random()*10))}>點我看氣象</button>
         </div>
     )
 }
