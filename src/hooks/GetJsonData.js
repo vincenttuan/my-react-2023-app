@@ -1,13 +1,16 @@
 import React, {useState} from 'react'
-//import myuserdata from './userdata.json'
+import myuserdata from './userdata.json'
 
 function GetJsonData() {
     // 使用者數據
+    const {users} = myuserdata;
+    /*
     const [users] = useState([
         { userId: 101, username: 'user123', password: 'pass123', level: 1 },
         { userId: 102, username: 'user456', password: 'pass456', level: 2 },
         { userId: 103, username: 'user789', password: 'pass789', level: 1 }
     ]);
+    */
 
     // 渲染表格
     // 渲染使用者表格
