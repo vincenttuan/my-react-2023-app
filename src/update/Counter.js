@@ -23,9 +23,11 @@ function Counter() {
         <div>
             <h2>計數器(函數形式更新)</h2>
             <button onClick={incrementFunction}>函數形式更新</button>
+            <div>{countFunction}</div>
             <p />
             <h2>計數器(物件形式更新)</h2>
             <button onClick={incrementObject}>物件形式更新</button>
+            <div>{countObject}</div>
         </div>
     );
 
