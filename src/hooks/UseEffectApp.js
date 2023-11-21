@@ -12,12 +12,18 @@
 import React, {useState, useEffect} from "react";
 
 function UseEffectApp() {
-    const [price, setPrice] = useState[0];
+    const [price, setPrice] = useState(0);
+    const [temp, setTemp] = useState(0);
 
+    useEffect(() => {
+        console.log('effect ' + new Date().toLocaleDateString());
+    });
     return (
         <div>
-            <p>目前台積電最新報價 {price}</p>
-            <button onclick={() => setPrice(price + 1)}>點我看報價</button>
+            <p>目前台積電最新報價 {price} 元</p>
+            <button onClick={() => setPrice(price + 1)}>點我看報價</button>
+            <p>目前最新氣溫 {temp} 度</p>
+            <button onClick={() => setTemp(price + 1)}>點我看氣象</button>
         </div>
     )
 }
