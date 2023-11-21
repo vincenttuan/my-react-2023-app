@@ -2,6 +2,7 @@
 import React from "react";
 import FormUI from './form/FormUI'
 import ListUI from './list/ListUI'
+import ListTableUI from './list/ListTableUI'
 
 class FormAndList extends React.Component {
     constructor(props) {
@@ -46,6 +47,7 @@ class FormAndList extends React.Component {
                     onSubmit={this.handleSubmit}
                 />
                 <ListUI products={products} />
+                <ListTableUI products={products} />
             </div>
         );
     }
