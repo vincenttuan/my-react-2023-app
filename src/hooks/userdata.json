@@ -1,0 +1,7 @@
+{
+    "users": [
+        { "userId": 101, "username": "user123", "password": "pass123", "level": 1 },
+        { "userId": 102, "username": "user456", "password": "pass456", "level": 2 },
+        { "userId": 103, "username": "user789", "password": "pass789", "level": 1 }
+    ]
+}
