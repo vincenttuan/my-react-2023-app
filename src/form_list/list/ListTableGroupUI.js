@@ -21,7 +21,7 @@ function ListTableGroupUI({products}) {
 
     return (
         <div>
-            <h2>金融商品列表(Table + Group)</h2>
+            <h2>金融商品列表(Table + Group(分組))</h2>
             <table border="1">
                 <thead>
                     <tr><th>商品代號</th><th>數量</th></tr>
