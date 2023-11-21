@@ -18,9 +18,10 @@ import Form1 from "../form_list/form/Form1";
 import Form2 from "../form_list/form/Form2";
 import List from "../form_list/list/List"
 import FormAndList from "../form_list/FormAndList";
-
 // Update
 import Counter from "../update/Counter";
+// Hooks
+import UseStateApp from "../hooks/UseStateApp";
 
 function Home() {
     return <h2>Home Page</h2>
@@ -73,6 +74,10 @@ function NavRouter() {
                     Update(函數/物件式更新)
                     <li><Link to="/Counter">Counter</Link></li>
                 </ol>
+                <ol>
+                    Hooks
+                    <li><Link to="/UseStateApp">UseState App</Link></li>
+                </ol>
             </nav>
             {/* 右邊內容 */}
             <main style={{flex: 1, padding: '1rem'}}>
@@ -100,6 +105,8 @@ function NavRouter() {
                     <Route path="/FormAndList" element={<FormAndList />} />
                     {/* Update */}
                     <Route path="/Counter" element={<Counter />} />
+                    {/* Hooks */}
+                    <Route path="/UseStateApp" element={<UseStateApp />} />
                 </Routes>
             </main>
         </div>
