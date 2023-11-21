@@ -8,6 +8,7 @@ function Counter() {
     // 然後基於這個值進行更新。這種方式確保了即使有多次快速的狀態更新，每次更新都是基於最新的狀態。
     const incrementFunction = () => {
         setCountFunction(preCount => preCount + 1);
+        console.log(countFunction);
     }
 
     // 物件形式更新（incrementObject）：這裡直接使用了當前的 count 狀態來更新計數器。
@@ -15,6 +16,7 @@ function Counter() {
     // 特別是在 React 批量處理狀態更新的情況下。
     const incrementObject = () => {
         setCountObject(countObject + 1);
+        console.log(countObject);
     }
 
     return (
