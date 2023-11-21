@@ -3,6 +3,7 @@ import React from "react";
 import FormUI from './form/FormUI'
 import ListUI from './list/ListUI'
 import ListTableUI from './list/ListTableUI'
+import ListTableGroupUI from "./list/ListTableGroupUI";
 
 class FormAndList extends React.Component {
     constructor(props) {
@@ -48,6 +49,7 @@ class FormAndList extends React.Component {
                 />
                 <ListUI products={products} />
                 <ListTableUI products={products} />
+                <ListTableGroupUI products={products} />
             </div>
         );
     }
