@@ -22,6 +22,7 @@ import FormAndList from "../form_list/FormAndList";
 import Counter from "../update/Counter";
 // Hooks
 import UseStateApp from "../hooks/UseStateApp";
+import UseEffectApp from "../hooks/UseEffectApp";
 
 function Home() {
     return <h2>Home Page</h2>
@@ -77,6 +78,7 @@ function NavRouter() {
                 <ol>
                     Hooks
                     <li><Link to="/UseStateApp">UseState App</Link></li>
+                    <li><Link to="/UseEffectApp">UseEffect App</Link></li>
                 </ol>
             </nav>
             {/* 右邊內容 */}
@@ -107,6 +109,7 @@ function NavRouter() {
                     <Route path="/Counter" element={<Counter />} />
                     {/* Hooks */}
                     <Route path="/UseStateApp" element={<UseStateApp />} />
+                    <Route path="/UseEffectApp" element={<UseEffectApp />} />
                 </Routes>
             </main>
         </div>
