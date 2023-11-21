@@ -16,6 +16,7 @@ import HOCAssetInfo from "../component/HOCAssetInfo";
 // Form & List
 import Form1 from "../form_list/form/Form1";
 import Form2 from "../form_list/form/Form2";
+import List from "../form_list/list/List"
 
 function Home() {
     return <h2>Home Page</h2>
@@ -60,7 +61,8 @@ function NavRouter() {
                     Form
                     <li><Link to="/Form1">Form1</Link></li>
                     <li><Link to="/Form2">Form2</Link></li>
-
+                    List
+                    <li><Link to="/List">List</Link></li>
                 </ol>
             </nav>
             {/* 右邊內容 */}
@@ -85,7 +87,7 @@ function NavRouter() {
                     {/* Form & List */}
                     <Route path="/Form1" element={<Form1 />} />
                     <Route path="/Form2" element={<Form2 />} />
-
+                    <Route path="/List" element={<List />} />
                 </Routes>
             </main>
         </div>
