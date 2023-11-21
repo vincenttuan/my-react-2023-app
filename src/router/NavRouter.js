@@ -23,6 +23,8 @@ import Counter from "../update/Counter";
 // Hooks
 import UseStateApp from "../hooks/UseStateApp";
 import UseEffectApp from "../hooks/UseEffectApp";
+import UseEffect2App from "../hooks/UseEffect2App";
+
 
 function Home() {
     return <h2>Home Page</h2>
@@ -79,6 +81,7 @@ function NavRouter() {
                     Hooks
                     <li><Link to="/UseStateApp">UseState App</Link></li>
                     <li><Link to="/UseEffectApp">UseEffect App</Link></li>
+                    <li><Link to="/UseEffect2App">UseEffect2 App</Link></li>
                 </ol>
             </nav>
             {/* 右邊內容 */}
@@ -110,6 +113,7 @@ function NavRouter() {
                     {/* Hooks */}
                     <Route path="/UseStateApp" element={<UseStateApp />} />
                     <Route path="/UseEffectApp" element={<UseEffectApp />} />
+                    <Route path="/UseEffect2App" element={<UseEffect2App />} />
                 </Routes>
             </main>
         </div>
