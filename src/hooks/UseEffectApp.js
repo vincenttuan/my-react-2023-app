@@ -16,7 +16,11 @@ function UseEffectApp() {
     const [temp, setTemp] = useState(0);
 
     useEffect(() => {
-        console.log('effect ' + new Date().toLocaleDateString());
+        // 副作用
+        if(price > 580) {
+            console.log('下單 ' + new Date().toLocaleDateString());
+        }
+        //console.log('effect ' + new Date().toLocaleDateString());
     });
 
     return (
