@@ -3,7 +3,7 @@ import React from "react";
 function ListUI({products}) {
     return (
         <div>
-            <h2>金融商品列表</h2>
+            <h2>金融商品列表(List)</h2>
             <ul>
                 {
                     products.map((product) => (

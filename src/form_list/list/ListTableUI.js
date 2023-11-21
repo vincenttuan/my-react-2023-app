@@ -3,11 +3,13 @@ import ListUI from "./ListUI";
 // 利用 Table 來呈現列表，並加入總和計算
 
 function ListTableUI({products}) {
+
+    // 計算總和
     const totalAmount = products.reduce((sum, product) => sum + parseInt(product.amount), 0);
 
     return (
         <div>
-            <h2>金融商品列表</h2>
+            <h2>金融商品列表(Table)</h2>
             <table border="1">
                 <thead>
                     <tr><th>ID</th><th>商品代號</th><th>數量</th></tr>
