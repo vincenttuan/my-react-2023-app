@@ -21,7 +21,7 @@ function UseEffectApp() {
             console.log('下單 ' + new Date().toLocaleDateString());
         }
         //console.log('effect ' + new Date().toLocaleDateString());
-    });
+    }, [price]); // 指定依賴，只有當 price 改變的時候才會執行 useEffect
 
     return (
         <div>
