@@ -8,14 +8,12 @@ import React, { useState } from "react";
 
 function UseStateApp() {
     const [count, setCount] = useState(0);
-
     return (
         <div>
             <p>你點擊了 { count } 次</p>
             <button onClick={() => setCount(count + 1)}>點我</button>
         </div>
     );
-
 }
 
 export default UseStateApp;
