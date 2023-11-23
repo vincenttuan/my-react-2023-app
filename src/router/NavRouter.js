@@ -29,6 +29,7 @@ import GetJsonData from "../hooks/GetJsonData";
 import UseReducerShoppingCarApp from "../hooks/use_reducer/UseReducerShoppingCarApp";
 import UseMemoBmiApp from "../hooks/use_memo/UseMemoBmiApp";
 import UseCallbackFilterPriceApp from "../hooks/use_callback/UseCallbackFilterPriceApp";
+import UseRefCounterWithTimerApp from "../hooks/use_ref/UseRefCounterWithTimerApp";
 
 // 置頂元件
 function ScrollToTop() {
@@ -100,6 +101,7 @@ function NavRouter() {
                     <li><Link to="/UseReducerShoppingCarApp">UseReducer ShoppingCar App</Link></li>
                     <li><Link to="/UseMemoBmiApp">UseMemo Bmi App</Link></li>
                     <li><Link to="/UseCallbackFilterPriceApp">UseCallback FilterPrice App</Link></li>
+                    <li><Link to="/UseRefCounterWithTimerApp">UseRef CounterWithTimer App</Link></li>
                 </ol>
             </nav>
             {/* 右邊內容 */}
@@ -136,6 +138,7 @@ function NavRouter() {
                     <Route path="/UseReducerShoppingCarApp" element={<UseReducerShoppingCarApp />} />
                     <Route path="/UseMemoBmiApp" element={<UseMemoBmiApp />} />
                     <Route path="/UseCallbackFilterPriceApp" element={<UseCallbackFilterPriceApp />} />
+                    <Route path="/UseRefCounterWithTimerApp" element={<UseRefCounterWithTimerApp />} />
                 </Routes>
             </main>
         </div>
