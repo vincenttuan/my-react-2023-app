@@ -8,7 +8,17 @@ function carReducer(state, action) {
     switch(action.type) {
         case 'add':
             console.log('carReducer => add');
-            // 添加到購物車
+            // 檢查商品id是否有在購物車中
+            const existingItem = state.find(item => item.id === action.product.id);
+            // 如果商品已經存在
+            if(existingItem) {
+                // 找到該商品並將數量 + 1
+                return state.map(item => 
+                    item.id === action.product.id ?
+                            {...item, quantity: item.quantity + 1} : item
+                );
+            }
+            // 如果商品已經存在不存在就直接添加到購物車
             return [...state, {...action.product, quantity: 1}];
             
         case 'remove':
