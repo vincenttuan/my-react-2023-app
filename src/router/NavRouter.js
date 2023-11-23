@@ -30,6 +30,7 @@ import UseReducerShoppingCarApp from "../hooks/use_reducer/UseReducerShoppingCar
 import UseMemoBmiApp from "../hooks/use_memo/UseMemoBmiApp";
 import UseCallbackFilterPriceApp from "../hooks/use_callback/UseCallbackFilterPriceApp";
 import UseRefCounterWithTimerApp from "../hooks/use_ref/UseRefCounterWithTimerApp";
+import UserContextApp from "../hooks/use_context/UserContextApp"
 
 // 置頂元件
 function ScrollToTop() {
@@ -102,6 +103,7 @@ function NavRouter() {
                     <li><Link to="/UseMemoBmiApp">UseMemo Bmi App</Link></li>
                     <li><Link to="/UseCallbackFilterPriceApp">UseCallback FilterPrice App</Link></li>
                     <li><Link to="/UseRefCounterWithTimerApp">UseRef CounterWithTimer App</Link></li>
+                    <li><Link to="/UserContextApp">User Context App</Link></li>
                 </ol>
             </nav>
             {/* 右邊內容 */}
@@ -139,6 +141,7 @@ function NavRouter() {
                     <Route path="/UseMemoBmiApp" element={<UseMemoBmiApp />} />
                     <Route path="/UseCallbackFilterPriceApp" element={<UseCallbackFilterPriceApp />} />
                     <Route path="/UseRefCounterWithTimerApp" element={<UseRefCounterWithTimerApp />} />
+                    <Route path="/UserContextApp" element={<UserContextApp />} />
                 </Routes>
             </main>
         </div>
