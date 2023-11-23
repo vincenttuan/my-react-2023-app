@@ -35,6 +35,7 @@ function ShoppingCar() {
         {id: 3, name: '產品 C', price: 300}
     ];
 
+    // 新增至購物車
     function addToCart(product) {
         dispatch({type: 'add', product});
     }
