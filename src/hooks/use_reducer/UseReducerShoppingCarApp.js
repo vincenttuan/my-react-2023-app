@@ -1,5 +1,12 @@
 import React, { useReducer } from "react";
 
+// 格式化價格
+function formatPrice(price) {
+    return new Intl.NumberFormat('zh-TW', {
+        style: 'decimal', maximumFractionDigits: 1 // 保留小數點的位數
+    }).format(price);
+}
+
 // 此方法會在每次渲染時都會被調用
 // 這裡的 state 是指 carReducer 的 state
 // action 是 dispatch 的參數
@@ -72,6 +79,8 @@ function ShoppingCar() {
                 cart.map(item => (
                     <div key={item.id}>
                         {item.name} - ${item.price} x {item.quantity}
+                        &nbsp;&nbsp;
+                        (小計: ${formatPrice(item.price * item.quantity)})
                         &nbsp;&nbsp;
                         <button onClick={() => dispatch({type: 'remove', product: item})}>刪除</button>
                     </div>
