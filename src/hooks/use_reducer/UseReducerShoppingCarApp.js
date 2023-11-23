@@ -8,7 +8,9 @@ function carReducer(state, action) {
     switch(action.type) {
         case 'add':
             console.log('carReducer => add');
-            break;
+            // 添加到購物車
+            return [...state, {...action.product, quantity: 1}];
+            
         case 'remove':
             console.log('carReducer => remove');
             break; 
@@ -53,6 +55,13 @@ function ShoppingCar() {
                 ))
             }
             <h2>購物車列表</h2>
+            {
+                cart.map(item => (
+                    <div key={item.id}>
+                        {item.name} - ${item.price} x {item.quantity}
+                    </div>
+                ))
+            }
         </div>
     );
 }
