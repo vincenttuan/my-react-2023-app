@@ -16,7 +16,10 @@ function BMICalculator() {
     const [name, setName] = useState(""); // 用戶名
     
     // 不使用 useMemo, 每一次當 state(name, weight, height ...) 有變化的時候都會被執行
-    const bmi = calculateBMI(weight, height);
+    //const bmi = calculateBMI(weight, height);
+    // 使用 useMemo
+    // [weight, height] 是一個依賴陣列, 表示只有 weight, height 有變化時，才會執行計算
+    const bmi = useMemo(() => calculateBMI(weight, height), [weight, height]); 
 
     return (
         <div>
