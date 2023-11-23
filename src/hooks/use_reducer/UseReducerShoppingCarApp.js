@@ -62,6 +62,9 @@ function ShoppingCar() {
         dispatch({type: 'add', product});
     }
 
+    // 購物車所有商品的總價
+    const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+
     return (
         <div>
             <h2>商品列表</h2>
@@ -86,10 +89,24 @@ function ShoppingCar() {
                     </div>
                 ))
             }
-            <p></p>
+            <p />
+            {
+                cart.length > 0 && (
+                    <div>總價: ${formatPrice(totalPrice)}</div>
+                )
+            }
+            <p />
             {
                 cart.length > 0 && (
                     <button onClick={() => dispatch({type: 'clear'})}>清空購物車</button>
+                )
+            }
+            &nbsp;&nbsp;
+            {
+                cart.length > 0 && (
+                    <button onClick={() => alert(JSON.stringify(cart))}>
+                        購物車 Json 字串
+                    </button>
                 )
             }
         </div>
