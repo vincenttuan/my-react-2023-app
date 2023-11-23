@@ -37,6 +37,16 @@ function ShoppingApp() {
                     ))
                 }
             </ul>
+            <h2>過濾商品價格</h2>
+            價格過濾：
+            <input type="number" value={filter} onChange={e => setFilter(e.target.value)} />
+            <ul>
+                {
+                    filterProducts().map((product, index) => (
+                        <li key={index}>{product.name} - ${product.price}</li>
+                    ))
+                }
+            </ul>
         </div>
     );
 }
