@@ -28,6 +28,32 @@ function ShoppingCar() {
     // type 包含: add, remove, clear
     const [cart, dispatch] = useReducer(carReducer, []);
 
+    // 商品列表
+    const products = [
+        {id: 1, name: '產品 A', price: 100},
+        {id: 2, name: '產品 B', price: 200},
+        {id: 3, name: '產品 C', price: 300}
+    ];
+
+    function addToCart(product) {
+        dispatch({type: 'add', product});
+    }
+
+    return (
+        <div>
+            <h2>商品列表</h2>
+            {
+                products.map(product => (
+                    <div key={product.id}>
+                        {product.name} - ${product.price}
+                        &nbsp;&nbsp;
+                        <button onClick={() => addToCart(product)}>添加到購物車</button>
+                    </div>
+                ))
+            }
+            <h2>購物車列表</h2>
+        </div>
+    );
 }
 
 export default ShoppingCar;
