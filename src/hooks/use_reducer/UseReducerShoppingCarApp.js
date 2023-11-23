@@ -22,8 +22,10 @@ function carReducer(state, action) {
             return [...state, {...action.product, quantity: 1}];
             
         case 'remove':
+            // 移除商品
             console.log('carReducer => remove');
-            break; 
+            // 利用 filter 來將不要的商品 id 剔除
+            return state.filter(item => item.id !== action.product.id);
         case 'clear':
             console.log('carReducer => clear');
             break;
@@ -69,6 +71,8 @@ function ShoppingCar() {
                 cart.map(item => (
                     <div key={item.id}>
                         {item.name} - ${item.price} x {item.quantity}
+                        &nbsp;&nbsp;
+                        <button onClick={() => dispatch({type: 'remove', product: item})}>刪除</button>
                     </div>
                 ))
             }
