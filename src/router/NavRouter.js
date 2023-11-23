@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {useLocation} from 'react-router-dom' // 給 ScrollToTop 使用
 import { Link, Route, Routes } from "react-router-dom";
 // JSX
 import JSXShoppingDemo from '../jsx/JSXShoppingDemo'
@@ -25,7 +26,15 @@ import UseStateApp from "../hooks/UseStateApp";
 import UseEffectApp from "../hooks/UseEffectApp";
 import UseEffect2App from "../hooks/UseEffect2App";
 import GetJsonData from "../hooks/GetJsonData";
+import UseReducerShoppingCarApp from "../hooks/use_reducer/UseReducerShoppingCarApp";
 
+// 置頂元件
+function ScrollToTop() {
+    const location = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0); // javascript 的語法
+    }, [location]); // 依賴於 location 有變化的時候就執行 (依賴陣列)
+}
 
 function Home() {
     return <h2>Home Page</h2>
@@ -42,6 +51,8 @@ function Settings() {
 function NavRouter() {
     return (
         <div style={{display: 'flex'}}>
+            {/* 配置置頂元件 */}
+            <ScrollToTop />
             {/* 左邊選單 */}
             <nav style={{borderRight: '1px solid', padding: '1rem'}}>
                 <ul>
@@ -84,6 +95,7 @@ function NavRouter() {
                     <li><Link to="/UseEffectApp">UseEffect App</Link></li>
                     <li><Link to="/UseEffect2App">UseEffect2 App</Link></li>
                     <li><Link to="/GetJsonData">GetJsonData App</Link></li>
+                    <li><Link to="/UseReducerShoppingCarApp">UseReducer ShoppingCar App</Link></li>
                 </ol>
             </nav>
             {/* 右邊內容 */}
@@ -117,6 +129,7 @@ function NavRouter() {
                     <Route path="/UseEffectApp" element={<UseEffectApp />} />
                     <Route path="/UseEffect2App" element={<UseEffect2App />} />
                     <Route path="/GetJsonData" element={<GetJsonData />} />
+                    <Route path="/UseReducerShoppingCarApp" element={<UseReducerShoppingCarApp />} />
                 </Routes>
             </main>
         </div>
