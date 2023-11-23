@@ -27,8 +27,9 @@ function carReducer(state, action) {
             // 利用 filter 來將不要的商品 id 剔除
             return state.filter(item => item.id !== action.product.id);
         case 'clear':
+            // 清空商品
             console.log('carReducer => clear');
-            break;
+            return [];
         default:
             throw new Error('未知的動作');      
     }
@@ -75,6 +76,12 @@ function ShoppingCar() {
                         <button onClick={() => dispatch({type: 'remove', product: item})}>刪除</button>
                     </div>
                 ))
+            }
+            <p></p>
+            {
+                cart.length > 0 && (
+                    <button onClick={() => dispatch({type: 'clear'})}>清空購物車</button>
+                )
             }
         </div>
     );
