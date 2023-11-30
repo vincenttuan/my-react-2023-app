@@ -6,7 +6,7 @@ import React, { createContext, useEffect, useState } from "react";
 export const StockContext = createContext();
 
 export function StockProvider({children}) {
-    const [stocks, setStocks] = useState({APPL: 150, MSFT: 250, GOOG: 2800});
+    const [stocks, setStocks] = useState({AAPL: 150, MSFT: 250, GOOG: 2800});
 
     // 模擬股票價格的非同步更新
     useEffect(() => {
@@ -15,7 +15,7 @@ export function StockProvider({children}) {
             // 其他的股票價格就會保持不變
             setStocks(currentStocks => ({
                 ...currentStocks,
-                APPL: currentStocks.APPL * (1 + (Math.random() - 0.5) / 10),
+                AAPL: currentStocks.AAPL * (1 + (Math.random() - 0.5) / 10),
                 MSFT: currentStocks.MSFT * (1 + (Math.random() - 0.5) / 10),
                 GOOG: currentStocks.GOOG * (1 + (Math.random() - 0.5) / 10)
             }));
