@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useReducer, useState } from "react";
+import React, { useCallback, useContext, useMemo, useReducer, useState } from "react";
 import { StockContext } from "./StockProvider";
 import portfolioReducer from "./StockReducer";
 
@@ -39,6 +39,13 @@ function StockTradingApp() {
 
     }, [selectedStock, quantity, stocks, state.portfolio]);
 
+    // 計算投資組合的總價值
+    const totalValue = useMemo(() => {
+        return Object.entries(state.portfolio).reduce((total, [stockId, qty]) => {
+            return total + (stocks[stockId] || 0) * qty;
+        }, 0);
+    }, [state.portfolio, stocks]);
+
     return (
         <div>
             <h2>股價報價</h2>
@@ -48,7 +55,7 @@ function StockTradingApp() {
             
             <h2>股票交易</h2>
             <div>可用資金: ${state.balance.toFixed(2)}</div>
-            <div>投資價值: $ 0.0</div>
+            <div>投資價值: ${totalValue.toFixed(2)}</div>
             <div>即時獲利: $ 0.0</div>
             <div>
                 股票下單:<br />
