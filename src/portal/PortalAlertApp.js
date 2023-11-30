@@ -5,8 +5,9 @@ function AlertBox({onClose}) {
     return ReactDOM.createPortal(
         <div className="alert-box">
             <p>這是一個警告視窗</p>
-            <button onClick="{onClose}">關閉</button>
-        </div>
+            <button onClick={onClose}>關閉</button>
+        </div>,
+        document.body
     );
 }
 
