@@ -23,5 +23,5 @@ export function StockProvider({children}) {
         return () => clearInterval(interval); // 清除計時器
     }, []);
 
-    return <StockContext.Provider value="{stocks}">{children}</StockContext.Provider>
+    return <StockContext.Provider value={stocks}>{children}</StockContext.Provider>
 } 

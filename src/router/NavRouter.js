@@ -31,6 +31,8 @@ import UseMemoBmiApp from "../hooks/use_memo/UseMemoBmiApp";
 import UseCallbackFilterPriceApp from "../hooks/use_callback/UseCallbackFilterPriceApp";
 import UseRefCounterWithTimerApp from "../hooks/use_ref/UseRefCounterWithTimerApp";
 import UserContextApp from "../hooks/use_context/UserContextApp"
+// Lab1
+import FinApp from "../lab1/FinApp";
 
 // 置頂元件
 function ScrollToTop() {
@@ -105,6 +107,10 @@ function NavRouter() {
                     <li><Link to="/UseRefCounterWithTimerApp">UseRef CounterWithTimer App</Link></li>
                     <li><Link to="/UserContextApp">User Context App</Link></li>
                 </ol>
+                <ol>
+                    Lab
+                    <li><Link to="/FinApp">FinApp</Link></li>
+                </ol>
             </nav>
             {/* 右邊內容 */}
             <main style={{flex: 1, padding: '1rem'}}>
@@ -142,6 +148,8 @@ function NavRouter() {
                     <Route path="/UseCallbackFilterPriceApp" element={<UseCallbackFilterPriceApp />} />
                     <Route path="/UseRefCounterWithTimerApp" element={<UseRefCounterWithTimerApp />} />
                     <Route path="/UserContextApp" element={<UserContextApp />} />
+                    {/* Lab */}
+                    <Route path="/FinApp" element={<FinApp />} />
                 </Routes>
             </main>
         </div>
