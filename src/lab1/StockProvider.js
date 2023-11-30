@@ -23,5 +23,7 @@ export function StockProvider({children}) {
         return () => clearInterval(interval); // 清除計時器
     }, []);
 
+    // {children} 指的就是在 FinApp.js 中的 <StockTradingApp />
+    // 如此 StockTradingApp 就可以自由使用 StockProvider 的資源
     return <StockContext.Provider value={stocks}>{children}</StockContext.Provider>
 } 
