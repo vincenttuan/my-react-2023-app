@@ -4,6 +4,7 @@ import portfolioReducer from "./StockReducer";
 
 function StockTradingApp() {
     const stocks = useContext(StockContext); // 使用 useContext() 取得股價報價
+    // dispatch 指的就是 action
     const [state, dispatch] = useReducer(portfolioReducer, {balance: 10000, portfolio: {}});
     const [selectedStock, setSelectedStock] = useState('AAPL');
     const [quantity, setQuantity] = useState(1);
@@ -22,6 +23,21 @@ function StockTradingApp() {
         }
 
     }, [selectedStock, quantity, stocks, state.balance]);
+
+    // 賣出股票
+    const sellStock = useCallback(() => {
+        const currentQuantity = state.portfolio[selectedStock] || 0;
+        if(currentQuantity < quantity) {
+            setError('持有的股票數量不足，無法賣出');
+        } else {
+            dispatch({
+                type: 'sell',
+                payload: {stockId: selectedStock, quantity, price: stocks[selectedStock]}
+            });
+            setError(''); // 清除錯誤訊息
+        }
+
+    }, [selectedStock, quantity, stocks, state.portfolio]);
 
     return (
         <div>
@@ -48,7 +64,7 @@ function StockTradingApp() {
                 &nbsp;&nbsp;
                 <button onClick={buyStock}>買進</button>
                 &nbsp;&nbsp;
-                <button>賣出</button>
+                <button onClick={sellStock}>賣出</button>
             </div>
             {error && <div style={{color: 'red'}}>{error}</div>}
             <h2>持有股票</h2>
