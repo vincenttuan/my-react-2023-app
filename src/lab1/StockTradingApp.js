@@ -31,25 +31,32 @@ function StockTradingApp() {
             <div>Google (GOOG) 當前價格: ${stocks['GOOG'].toFixed(2)}</div>
             
             <h2>股票交易</h2>
-            <div>可用資金: $ 0.0</div>
+            <div>可用資金: ${state.balance.toFixed(2)}</div>
             <div>投資價值: $ 0.0</div>
             <div>即時獲利: $ 0.0</div>
             <div>
                 股票下單:<br />
-                <select>
+                <select value={selectedStock} onChange={e => setSelectedStock(e.target.value)}>
                     <option value="AAPL">Apple</option>
                     <option value="MSFT">Misrosoft</option>
                     <option value="GOOG">Google</option>
                 </select>
                 &nbsp;&nbsp;
-                <input type="number" min="1" value="1" /> 股
+                <input type="number" min="1" 
+                        value={quantity} 
+                        onChange={e => setQuantity(parseInt(e.target.value) || 0)} /> 股
                 &nbsp;&nbsp;
-                <button>買進</button>
+                <button onClick={buyStock}>買進</button>
                 &nbsp;&nbsp;
                 <button>賣出</button>
             </div>
+            {error && <div style={{color: 'red'}}>{error}</div>}
             <h2>持有股票</h2>
-
+            <div>
+                {Object.entries(state.portfolio).map(([stockId, qty]) => (
+                    <div key={stockId}>{stockId}: {qty} 股</div>
+                ))}
+            </div>
         </div>
     );
 }
