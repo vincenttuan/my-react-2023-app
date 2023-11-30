@@ -6,11 +6,11 @@
 //    - payload（下單的資料）包括：stockId（股票代號）、quantity（買賣數量）、price（買賣價格）
 
 function portfolioReducer(state, action) {
+    const {stockId, quantity, price} = action.payload;
+    const currentQuantity = state.portfolio[stockId] || 0;
+    const cost = price * quantity;
     switch(action.type) {
         case 'buy':
-            const {stockId, quantity, price} = action.payload;
-            const currentQuantity = state.portfolio[stockId] || 0;
-            const cost = price * quantity;
             // 是否有足夠的餘額可以買進
             if(state.balance >= cost) {
                 return {
@@ -26,7 +26,21 @@ function portfolioReducer(state, action) {
             // 當條件不滿足時，維持當前的狀態
             return state;
         case 'sell':  
-
+            // 部位中是否有足夠的股數可以賣出
+            if(currentQuantity >= quantity) {
+                return {
+                    ...state,
+                    balance: state.balance + cost,
+                    portfolio: {
+                        ...state.portfolio,
+                        [stockId]: currentQuantity - quantity
+                    }
+                }
+            }
+            // 當條件不滿足時，維持當前的狀態
+            return state;
+        default:
+            throw new Error('未知的下單動作類型');
     }
 }
 
