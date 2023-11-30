@@ -31,6 +31,7 @@ import UseMemoBmiApp from "../hooks/use_memo/UseMemoBmiApp";
 import UseCallbackFilterPriceApp from "../hooks/use_callback/UseCallbackFilterPriceApp";
 import UseRefCounterWithTimerApp from "../hooks/use_ref/UseRefCounterWithTimerApp";
 import UserContextApp from "../hooks/use_context/UserContextApp"
+import PortalAlertApp from "../portal/PortalAlertApp";
 // Lab1
 import FinApp from "../lab1/FinApp";
 
@@ -111,6 +112,10 @@ function NavRouter() {
                     Lab
                     <li><Link to="/FinApp">FinApp</Link></li>
                 </ol>
+                <ol>
+                    Portal
+                    <li><Link to="/PortalAlertApp">Portal Alert App</Link></li>
+                </ol>
             </nav>
             {/* 右邊內容 */}
             <main style={{flex: 1, padding: '1rem'}}>
@@ -150,6 +155,8 @@ function NavRouter() {
                     <Route path="/UserContextApp" element={<UserContextApp />} />
                     {/* Lab */}
                     <Route path="/FinApp" element={<FinApp />} />
+                    {/* Portal */}
+                    <Route path="/PortalAlertApp" element={<PortalAlertApp />} />
                 </Routes>
             </main>
         </div>
