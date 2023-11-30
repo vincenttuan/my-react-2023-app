@@ -1,8 +1,27 @@
-import React, { useContext } from "react";
+import React, { useCallback, useContext, useReducer, useState } from "react";
 import { StockContext } from "./StockProvider";
+import portfolioReducer from "./StockReducer";
 
 function StockTradingApp() {
     const stocks = useContext(StockContext); // 使用 useContext() 取得股價報價
+    const [state, dispatch] = useReducer(portfolioReducer, {balance: 10000, portfolio: {}});
+    const [selectedStock, setSelectedStock] = useState('AAPL');
+    const [quantity, setQuantity] = useState(1);
+    const [error, setError] = useState(''); // 存放錯誤訊息的狀態資料
+    // 購買股票
+    const buyStock = useCallback(() => {
+        const cost = stocks[selectedStock] * quantity;
+        if(state.balance < cost) {
+            setError('餘額不足，無法購買');
+        } else {
+            dispatch({
+                type: 'buy',
+                payload: {stockId: selectedStock, quantity, price: stocks[selectedStock]}
+            });
+            setError(''); // 清除錯誤訊息
+        }
+
+    }, [selectedStock, quantity, stocks, state.balance]);
 
     return (
         <div>
