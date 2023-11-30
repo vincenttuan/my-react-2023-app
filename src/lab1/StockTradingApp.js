@@ -55,7 +55,7 @@ function StockTradingApp() {
 
     // 模擬計算獲利效果
     const profit = (state.balance + totalValue) - initialBalance;
-
+    
     return (
         <div>
             <h2>股價報價</h2>
