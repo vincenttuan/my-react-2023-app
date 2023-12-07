@@ -19,8 +19,25 @@ const ShoppingCart = () => {
     return (
         <div>
 
-            <h2>購物車</h2>
-            
+            <h2>購物車列表</h2>
+            {
+                cart.map(product => (
+                    <div key={product.id}>
+                        <span>{product.name} ${product.price}</span>
+                        <button onClick={() => removeProduct(product)}>移除</button>
+                    </div>
+                ))
+            }
+
+            <h2>產品列表</h2>
+            {
+                products.map(product => (
+                    <div key={product.id}>
+                        <span>{product.name} ${product.price}</span>
+                        <button onClick={() => addProduct(product)}>加入購物車</button>
+                    </div>
+                ))
+            }
         </div>
     );
 }
