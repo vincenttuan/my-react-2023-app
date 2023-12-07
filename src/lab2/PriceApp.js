@@ -61,7 +61,7 @@ function PriceApp() {
                         </tbody>
                     </table>
                 ) : (<p>Loading ...</p>)
-            };
+            }
 
         </div>
     )
