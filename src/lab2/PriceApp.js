@@ -116,8 +116,6 @@ function PriceApp() {
     const minClosePrice = chartData.length > 0 ? Math.min(...chartData.map(item => item.closePrice)) * 0.9 : 0;
     const maxClosePrice = chartData.length > 0 ? Math.max(...chartData.map(item => item.closePrice)) * 1.1 : 0;
    
-
-
     return (
         <div className="center-conatiner" style={{ padding: '15px' }}>
             <h2>資料輸入</h2>
