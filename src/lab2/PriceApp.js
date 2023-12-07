@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 // 台灣證券交易所資料歷史交易資料
 // https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20231130&stockNo=2330
-// 因為台灣證券交易所不支援跨域請求，所以必須在 package.json 中設定代理伺服器 
+// 因為台灣證券交易所不支援跨域請求，所以必須在 package.json 中設定代理伺服器
+// 預測股價:
+// 回歸: http://localhost:8080/React-backend/predict?stockNo=2330&date=20231130&predict=regression
+// Smile: http://localhost:8080/React-backend/predict?stockNo=2330&date=20231130&predict=smile
+
 function PriceApp() {
     const stockNo = '2330';
     const date = '20231130';
