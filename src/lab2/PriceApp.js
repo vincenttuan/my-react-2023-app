@@ -19,6 +19,24 @@ function PriceApp() {
                 return response.json();
             })
             .then(jsonData => {
+
+                const prodictPrice = 580.00;
+                // 取得最後一筆收盤價格
+                const lastClosingPrice = parseFloat(jsonData.data[jsonData.data.length - 1][6].replace(/,/g, ''))
+                // 價差
+                const priceChange = prodictPrice - lastClosingPrice;
+                // 添加新的數據
+                jsonData.data.push([
+                    "預測",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    prodictPrice.toFixed(2), // 收盤價
+                    priceChange.toFixed(2), // 漲跌價差
+                    "",
+                ]);
                 setJsonData(jsonData);
             })
             .catch(error => {
