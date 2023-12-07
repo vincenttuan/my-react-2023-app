@@ -1,4 +1,5 @@
 {
+  "proxy": "https://www.twse.com.tw",
   "name": "my-react-2023-app",
   "version": "0.1.0",
   "private": true,
