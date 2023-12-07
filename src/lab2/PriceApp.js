@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import * as recharts from 'recharts'; // 要先安裝 npm install recharts
+
 // 台灣證券交易所資料歷史交易資料
 // https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20231130&stockNo=2330
 // 因為台灣證券交易所不支援跨域請求，所以必須在 package.json 中設定代理伺服器
@@ -82,6 +84,39 @@ function PriceApp() {
         setStockNo(stockNoInput); // 更新 symbol 狀態
         setDate(dateInputFormat);
     };
+
+    // 準備圖表資料
+    const chartData = jsonData ? jsonData.data.map((item, index, arr) => {
+        // 成交股數: 轉換為數字類型
+        const volume = parseFloat(item[1].replace(/,/g, ''));
+    
+        // 收盤價: 轉換為數字類型
+        const closePrice = parseFloat(item[6].replace(/,/g, ''));
+
+        // 計算五日均線
+        let average = null;
+        if (index >= 4) {
+            let sum = 0;
+            for (let i = 0; i < 5; i++) {
+                sum += parseFloat(arr[index - i][6].replace(/,/g, ''));
+            }
+            average = (sum / 5).toFixed(2); // 保留兩位小數
+        }
+    
+        return {
+            date: item[0],
+            closePrice,
+            volume,
+            average // 新增五日均線數據
+        };
+    }) : [];
+    
+
+    // 計算 Y 軸的最小值與最大值
+    const minClosePrice = chartData.length > 0 ? Math.min(...chartData.map(item => item.closePrice)) * 0.9 : 0;
+    const maxClosePrice = chartData.length > 0 ? Math.max(...chartData.map(item => item.closePrice)) * 1.1 : 0;
+   
+
 
     return (
         <div className="center-conatiner" style={{ padding: '15px' }}>
