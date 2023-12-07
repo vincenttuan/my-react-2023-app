@@ -31,6 +31,38 @@ function PriceApp() {
         <div className="center-conatiner" style={{ padding: '15px' }}>
             <h2>歷史股價</h2>
             <pre>{jsonData && console.log(jsonData)}</pre>
+            <p>代號：{stockNo}</p>
+            <p>標題：{jsonData && jsonData.title}</p>
+            <p>日期：{jsonData && jsonData.date}</p>
+            <p>狀態：{jsonData && jsonData.stat}</p>
+            {
+                jsonData ? (
+                    <table border="1" cellSpacing="0" cellPadding="5" style={{ width: '100%' }}>
+                        <thead>
+                            <tr>
+                                {/* 這是用來顯示欄位名稱的表頭 */}
+                                {jsonData.fields.map((field, index) => (
+                                    <th key={index}>{field}</th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {/* 這是用來顯示資料的表格主體 */}
+                            {jsonData.data.map((row, index) => (
+                                <tr key={index}>
+                                    {row.map((cell, cellIndex) => (
+                                        // cellIndex = 0 置中對齊, > 0 右對齊, 程式碼如下
+                                        <td key={cellIndex} style={{ textAlign: cellIndex === 0 ? 'center' : 'right' }}>
+                                            {cell}
+                                        </td>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                ) : (<p>Loading ...</p>)
+            };
+
         </div>
     )
 }
