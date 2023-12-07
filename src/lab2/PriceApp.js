@@ -177,6 +177,54 @@ function PriceApp() {
                     </table>
                 ) : (<p>Loading ...</p>)
             }
+            <div style={{height: '50px'}} />
+            <h2>股價走勢圖</h2>
+            <div style={{ width: '100%', height: 500 }}>
+                <recharts.ResponsiveContainer>
+                    <recharts.ComposedChart
+                        data={chartData}
+                        margin={{
+                            top: 5,
+                            right: 30,
+                            left: 20,
+                            bottom: 5,
+                        }}>
+                        <recharts.CartesianGrid strokeDasharray="3 3" />
+                        <recharts.XAxis dataKey="date" />
+                        <recharts.YAxis 
+                            yAxisId="left"
+                            domain={[minClosePrice, maxClosePrice]} // 設置收盤價的 Y 軸
+                        />
+                        <recharts.YAxis 
+                            yAxisId="right" 
+                            orientation="right" // orientation = right 表示是右側 Y 軸 
+                        />
+                        <recharts.Tooltip />
+                        <recharts.Legend />
+
+                        <recharts.Bar yAxisId="right" dataKey="volume" fill="#413ea0" name="成交股數"  />
+                        
+                        <recharts.Line 
+                            yAxisId="left" 
+                            type="monotone" 
+                            dataKey="closePrice" 
+                            stroke="#ff7300" 
+                            name="收盤價" 
+                            strokeWidth={3}
+                            />
+
+                        <recharts.Line 
+                            yAxisId="left" 
+                            type="monotone" 
+                            dataKey="average" 
+                            stroke="#8884d8" 
+                            name="5日均線" 
+                            strokeWidth={2}
+                        />
+   
+                    </recharts.ComposedChart>
+                </recharts.ResponsiveContainer>
+            </div>
 
         </div>
     )
