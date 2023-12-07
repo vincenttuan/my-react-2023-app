@@ -44,7 +44,7 @@ function PriceApp() {
                     const priceChange = prodictPrice - lastClosingPrice;
                     // 添加新的數據
                     jsonData.data.push([
-                        "預測",
+                        "預測:" + predict,
                         "",
                         "",
                         "",
