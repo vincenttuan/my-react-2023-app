@@ -18,6 +18,10 @@ const ShoppingCart = () => {
 
     return (
         <div>
+            {/** 顯示購物車已有此商品 */}
+            {
+                useStore(state => state.productExists) && <div style={{color: red}}>產品已存在購物車中</div>
+            }
 
             <h2>購物車列表</h2>
             {
