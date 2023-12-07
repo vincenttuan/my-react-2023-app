@@ -24,7 +24,7 @@ const ShoppingCart = () => {
                 cart.map(product => (
                     <div key={product.id}>
                         <span>{product.name} ${product.price}</span>
-                        <button onClick={() => removeProduct(product)}>移除</button>
+                        <button onClick={() => removeProduct(product.id)}>移除</button>
                     </div>
                 ))
             }
