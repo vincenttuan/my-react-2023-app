@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 
 function PriceApp() {
     const [stockNo, setStockNo] = useState('2330');
-    const [date, setDate] = useState('20231130');
+    const [date, setDate] = useState('2023-11-30');
     const [predict, setPredict] = useState('regression');
 
     const [jsonData, setJsonData] = useState(null); // 存放 json 資料數據
