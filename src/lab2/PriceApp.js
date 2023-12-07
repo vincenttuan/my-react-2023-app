@@ -9,6 +9,8 @@ import React, { useState, useEffect } from "react";
 function PriceApp() {
     const stockNo = '2330';
     const date = '20231130';
+    const predict = 'regression';
+
     const [jsonData, setJsonData] = useState(null); // 存放 json 資料數據
     // 當 stockNo 或 date 有變動時才會渲染
     useEffect(() => {
@@ -24,24 +26,38 @@ function PriceApp() {
             })
             .then(jsonData => {
 
-                const prodictPrice = 580.00;
-                // 取得最後一筆收盤價格
-                const lastClosingPrice = parseFloat(jsonData.data[jsonData.data.length - 1][6].replace(/,/g, ''))
-                // 價差
-                const priceChange = prodictPrice - lastClosingPrice;
-                // 添加新的數據
-                jsonData.data.push([
-                    "預測",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    prodictPrice.toFixed(2), // 收盤價
-                    priceChange.toFixed(2), // 漲跌價差
-                    "",
-                ]);
-                setJsonData(jsonData);
+                // 創建一個新的非同步函式來預測價格
+                const fetchPredictPrice = async() => {
+                    const predictURL = `http://localhost:8080/React-backend/predict?stockNo=${stockNo}&date=${date}&predict=${predict}`
+                    const response = await fetch(predictURL);
+                    if(!response.ok) {
+                        throw new Error('無法連到後端伺服器~');
+                    }
+                    const predictData = await response.json();
+                    const prodictPrice = predictData.predictPrice;
+                    console.log('預測價格: ', prodictPrice);
+                    // 取得最後一筆收盤價格
+                    const lastClosingPrice = parseFloat(jsonData.data[jsonData.data.length - 1][6].replace(/,/g, ''))
+                    // 價差
+                    const priceChange = prodictPrice - lastClosingPrice;
+                    // 添加新的數據
+                    jsonData.data.push([
+                        "預測",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        prodictPrice.toFixed(2), // 收盤價
+                        priceChange.toFixed(2), // 漲跌價差
+                        "",
+                    ]);
+                    setJsonData(jsonData);
+                };
+                // 調用非同步函數
+                fetchPredictPrice();
+                
+
             })
             .catch(error => {
                 console.error('Fetch error:', error);
