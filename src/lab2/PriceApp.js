@@ -7,12 +7,12 @@ import React, { useState, useEffect } from "react";
 // Smile: http://localhost:8080/React-backend/predict?stockNo=2330&date=20231130&predict=smile
 
 function PriceApp() {
-    const stockNo = '2330';
-    const date = '20231130';
-    const predict = 'regression';
+    const [stockNo, setStockNo] = useState('2330');
+    const [date, setDate] = useState('20231130');
+    const [predict, setPredict] = useState('regression');
 
     const [jsonData, setJsonData] = useState(null); // 存放 json 資料數據
-    // 當 stockNo 或 date 有變動時才會渲染
+    
     useEffect(() => {
         const url = `/exchangeReport/STOCK_DAY?response=json&date=${date}&stockNo=${stockNo}`;
         // 透過 fetch API 發送請求
@@ -63,10 +63,52 @@ function PriceApp() {
                 console.error('Fetch error:', error);
             });
 
-    }, [stockNo, date]); // 當 stockNo 或 date 有變動時才會渲染
+    }, [stockNo, date, predict]); // 當 stockNo, date 或 predict 有變動時才會渲染
+
+    // 表單提交
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const stockNoInput = formData.get('stockNo');
+        const dateInput = formData.get('date');
+        // 日期不可以大於今天
+        const today = new Date().toISOString().split('T')[0];
+        if (dateInput > today) {
+            alert('日期不可以大於今天');
+            return;
+        }
+        // 將 dateInput 2023-10-31 轉換成 20231031 格式
+        const dateInputFormat = dateInput.replace(/-/g, '');
+        setStockNo(stockNoInput); // 更新 symbol 狀態
+        setDate(dateInputFormat);
+    };
 
     return (
         <div className="center-conatiner" style={{ padding: '15px' }}>
+            <h2>資料輸入</h2>
+            <form className="pure-form" onSubmit={handleSubmit}>
+                <fieldset>
+                    <legend>Form</legend>
+                    <label>
+                        股票代碼：
+                        <input type="text" name="stockNo" defaultValue={stockNo} />
+                    </label>
+                    &nbsp;&nbsp;
+                    <label>
+                        日期（如 2023-10-31）：
+                        <input type="date" name="date" defaultValue={date} />
+                    </label>
+                    &nbsp;&nbsp;
+                    <label>
+                        <input type="radio" name="predict" value="regression" defaultChecked onChange={(event) => setPredict(event.target.value)} /> 簡單回歸
+                        <input type="radio" name="predict" value="smile" onChange={(event) => setPredict(event.target.value)} /> Smile 機器學習
+                    </label>
+                    &nbsp;&nbsp;
+                    <button type="submit" className="pure-button pure-button-primary">查詢</button>
+                    
+                </fieldset>
+            </form>
+
             <h2>歷史股價</h2>
             <pre>{jsonData && console.log(jsonData)}</pre>
             <p>代號：{stockNo}</p>
