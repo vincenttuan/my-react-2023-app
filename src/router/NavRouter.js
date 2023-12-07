@@ -37,6 +37,9 @@ import ZustandShoppingCartApp from "../zustand/ShoppingCart";
 // Lab1
 import FinApp from "../lab1/FinApp";
 
+// Lab2
+import PriceApp from "../lab2/PriceApp";
+
 // 置頂元件
 function ScrollToTop() {
     const location = useLocation();
@@ -113,7 +116,8 @@ function NavRouter() {
                 </ol>
                 <ol>
                     Lab
-                    <li><Link to="/FinApp">FinApp</Link></li>
+                    <li><Link to="/FinApp">Fin App</Link></li>
+                    <li><Link to="/PriceApp">Price App</Link></li>
                 </ol>
                 <ol>
                     Portal
@@ -159,6 +163,7 @@ function NavRouter() {
                     <Route path="/ZustandShoppingCartApp" element={<ZustandShoppingCartApp />} />
                     {/* Lab */}
                     <Route path="/FinApp" element={<FinApp />} />
+                    <Route path="/PriceApp" element={<PriceApp />} />
                     {/* Portal */}
                     <Route path="/PortalAlertApp" element={<PortalAlertApp />} />
                 </Routes>
