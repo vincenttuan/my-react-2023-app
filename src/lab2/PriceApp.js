@@ -91,12 +91,12 @@ function PriceApp() {
                     <legend>Form</legend>
                     <label>
                         股票代碼：
-                        <input type="text" name="stockNo" defaultValue={stockNo} />
+                        <input type="text" name="stockNo" defaultValue={stockNo} required />
                     </label>
                     &nbsp;&nbsp;
                     <label>
                         日期（如 2023-10-31）：
-                        <input type="date" name="date" defaultValue={date} />
+                        <input type="date" name="date" defaultValue={date} required />
                     </label>
                     &nbsp;&nbsp;
                     <label>
